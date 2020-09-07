@@ -15,7 +15,7 @@
 
     <div v-if="navigation == 1">
       <center>
-        <h1>成都佳视汇科技有限公司</h1>
+        <h1>网盘</h1>
       </center>
     </div>
     <div v-if="navigation == 2">
