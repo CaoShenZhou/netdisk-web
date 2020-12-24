@@ -2,11 +2,12 @@
   <v-app>
     <!-- 页头 -->
     <v-app-bar app color="primary" dark>
-      <v-toolbar-title>曹贼网盘</v-toolbar-title>
+      <v-toolbar-title>
+        <router-link to="/" title>曹贼网盘</router-link>
+      </v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-btn icon>
-        <v-icon>mdi-exit-to-app</v-icon>
-      </v-btn>
+      <v-btn icon><v-icon>mdi-account-cog</v-icon></v-btn>
+      <v-btn icon><v-icon>mdi-exit-to-app</v-icon></v-btn>
     </v-app-bar>
 
     <!-- 主体 -->
@@ -17,7 +18,14 @@
     <!-- 页脚 -->
     <v-footer fixed padless dark>
       <v-card flat tile width="100%" class="primary text-center">
-        <v-btn v-for="link in links" :key="link" color="white" text rounded class="my-2">
+        <v-btn
+          v-for="link in links"
+          :key="link"
+          color="white"
+          text
+          rounded
+          class="my-2"
+        >
           {{ link }}
         </v-btn>
         <v-card-text>
@@ -52,3 +60,11 @@ export default {
   }),
 };
 </script>
+
+<style lang="scss" scoped>
+.v-application a {
+  color: white;
+  text-decoration: none;
+}
+</style>
+
