@@ -4,15 +4,17 @@
       <v-card elevation="0">
         <!-- 工具栏 -->
         <v-toolbar elevation="0">
-          <v-btn small outlined class="mr-2">
-            <span>刷新</span>
-          </v-btn>
-          <v-btn small outlined class="mr-2">
-            <span>上传</span>
-          </v-btn>
-          <v-btn small outlined class="mr-2">
-            <span>新建文件夹</span>
-          </v-btn>
+          <v-btn-toggle class="mr-2">
+            <v-btn small outlined>
+              <span>刷新</span>
+            </v-btn>
+            <v-btn small outlined>
+              <span>上传</span>
+            </v-btn>
+            <v-btn small outlined>
+              <span>新建文件夹</span>
+            </v-btn>
+          </v-btn-toggle>
           <v-btn-toggle v-show="toolbar">
             <v-btn small outlined>
               <span>下载</span>
@@ -50,6 +52,12 @@
               hide-details
             ></v-text-field>
           </template>
+          <template v-slot:item.name="{ item }">
+            <router-link to="/about" v-if="item.isFolder">
+              {{ item.name }}
+            </router-link>
+            <template v-else>{{ item.name }}</template>
+          </template>
           <template v-slot:item.actions="{ item }">
             <v-tooltip top>
               <template v-slot:activator="{ on, attrs }">
@@ -57,7 +65,6 @@
                   large
                   class="mr-2"
                   @click="
-                    randomChar = $common.getRandomChar(4);
                     delSqlHostdialog = true;
                     sqlHostId = item.id;
                   "
@@ -104,6 +111,7 @@ export default {
         id: "1",
         name: "测试",
         type: "文件夹",
+        isFolder: true,
         size: null,
         uploadTime: "2020-12-24 01:22:55",
         updateTime: "2020-13-24 13:02:55",
@@ -112,6 +120,7 @@ export default {
         id: "2",
         name: "测试",
         type: "图片",
+        isFolder: false,
         size: 1024,
         uploadTime: "2020-12-24 01:22:55",
         updateTime: "2020-13-24 13:02:55",
