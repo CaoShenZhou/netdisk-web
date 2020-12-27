@@ -90,7 +90,7 @@
     </v-main>
 
     <!-- 页脚 -->
-    <v-footer fixed padless dark>
+    <v-footer padless dark>
       <v-card flat tile width="100%" class="primary text-center">
         <v-btn
           v-for="link in links"

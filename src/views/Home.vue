@@ -20,6 +20,9 @@
               <span>下载</span>
             </v-btn>
             <v-btn small outlined>
+              <span>分享</span>
+            </v-btn>
+            <v-btn small outlined>
               <span>删除</span>
             </v-btn>
             <v-btn small outlined>
@@ -40,6 +43,7 @@
           show-select
           v-model="selected"
           :items-per-page="-1"
+          hide-default-footer
         >
           <template v-slot:top>
             <!-- 搜索框 -->
@@ -62,12 +66,21 @@
             <v-tooltip top>
               <template v-slot:activator="{ on, attrs }">
                 <v-icon
-                  large
                   class="mr-2"
-                  @click="
-                    delSqlHostdialog = true;
-                    sqlHostId = item.id;
-                  "
+                  @click="sqlHostId = item.id"
+                  v-bind="attrs"
+                  v-on="on"
+                >
+                  mdi-download
+                </v-icon>
+              </template>
+              <span>下载</span>
+            </v-tooltip>
+            <v-tooltip top>
+              <template v-slot:activator="{ on, attrs }">
+                <v-icon
+                  class="mr-2"
+                  @click="sqlHostId = item.id"
                   v-bind="attrs"
                   v-on="on"
                 >
@@ -99,11 +112,11 @@ export default {
     // 表头
     headers: [
       { text: "名称", align: "start", value: "name", sortable: false },
-      { text: "类型", value: "type", sortable: false },
-      { text: "大小", value: "size", sortable: false },
-      { text: "上传日期", value: "uploadTime", sortable: false },
-      { text: "更新日期", value: "updateTime", sortable: false },
       { text: "操作", value: "actions", sortable: false },
+      { text: "类型", value: "type", sortable: false },
+      { text: "大小", value: "size", sortable: true },
+      { text: "上传日期", value: "uploadTime", sortable: true },
+      { text: "更新日期", value: "updateTime", sortable: true },
     ],
     // 表体
     items: [
@@ -114,16 +127,16 @@ export default {
         isFolder: true,
         size: null,
         uploadTime: "2020-12-24 01:22:55",
-        updateTime: "2020-13-24 13:02:55",
+        updateTime: "2020-12-24 13:02:55",
       },
       {
         id: "2",
-        name: "测试",
+        name: "fasg.jpg",
         type: "图片",
         isFolder: false,
         size: 1024,
-        uploadTime: "2020-12-24 01:22:55",
-        updateTime: "2020-13-24 13:02:55",
+        uploadTime: "2020-09-24 01:22:55",
+        updateTime: "2020-11-24 13:02:55",
       },
     ],
   }),
