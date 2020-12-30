@@ -8,13 +8,9 @@
           {{ link }}
         </v-btn>
         <v-spacer></v-spacer>
-        <v-btn text>
-          登录
-        </v-btn>
-        <v-btn text>
-          注册
-        </v-btn>
-        <v-responsive max-width="260">
+        <v-btn text><router-link to="/login">登录</router-link></v-btn>
+        <v-btn text>注册</v-btn>
+        <v-responsive class="ml-10" max-width="260">
           <v-text-field
             dense
             flat
@@ -74,4 +70,3 @@ export default {
   text-decoration: none;
 }
 </style>
-
