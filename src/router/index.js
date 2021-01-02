@@ -10,7 +10,7 @@ const routes = [
     name: "Home",
     component: Home,
     meta: {
-      title: '首页'
+      title: "首页"
     }
   },
   {
@@ -18,7 +18,7 @@ const routes = [
     name: "Login",
     component: () => import("../views/Login.vue"),
     meta: {
-      title: '登录'
+      title: "登录"
     }
   },
   {
@@ -26,7 +26,7 @@ const routes = [
     name: "About",
     component: () => import("../views/About.vue"),
     meta: {
-      title: '关于'
+      title: "关于"
     }
   }
 ];
@@ -42,7 +42,7 @@ router.beforeEach((to, from, next) => {
     // 修改页面标题
     document.title = to.meta.title;
   }
-  next()
+  next();
 });
 
 export default router;
